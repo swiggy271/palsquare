@@ -17,7 +17,7 @@ string baseConvert(int number, int base);
 bool palindromeCheck(string b);
 
 // prepare files for input and output
-ifstream fin ("palsquare.in")
+ifstream fin ("palsquare.in");
 ofstream fout ("palsquare.out");
 
 // declare variables
