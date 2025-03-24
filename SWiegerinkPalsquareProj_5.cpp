@@ -31,11 +31,13 @@ int main()
     // repetition of main block of program, at size specified by problemm description
     for(int j = 1; j < 301; j++)
     {
+        cout << j << endl;
         if(palindromeCheck(baseConvert(j, base)) == 1)
         {
             // op[j] = baseConvert(j, base);
             // opSquare[j] = baseConvert(pow(j, 2), base);
             cout << baseConvert(j, base) << " " << baseConvert(j * j, base) << endl;
+            cout << "pal" << endl;
         }
     }
 
