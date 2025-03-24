@@ -21,7 +21,7 @@ ifstream fin ("palsquare.in");
 ofstream fout ("palsquare.out");
 
 // declare variables
-int base, op[300], opSquare[300];
+int base, op[301], opSquare[301];
 
 int main()
 {
