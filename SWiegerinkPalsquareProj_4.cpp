@@ -35,7 +35,7 @@ int main()
         {
             // op[j] = baseConvert(j, base);
             // opSquare[j] = baseConvert(pow(j, 2), base);
-            cout << baseConvert(j, base) << " " << baseConvert(pow(j, 2), base) << endl;
+            cout << baseConvert(j, base) << " " << baseConvert(j * j, base) << endl;
         }
     }
 
@@ -52,7 +52,7 @@ string baseConvert(int number, int base)
     bool writeZ = 0;
     runningNum = number;
     a = 0;
-    while (runningNum > 0)
+    while (runningNum > 0 && a < 32)
     {
         powerTotal[a] = runningNum % base;
         // cout << "pa " << powerTotal[a] << endl;
