@@ -62,7 +62,7 @@ string baseConvert(int number, int base)
         a++;
     }
     a = 0;
-    for(int j = 10; j >= 0; j--)
+    for(int j = 18; j >= 0; j--)
     {
         // a += (powerTotal[j] * pow(10, j));
         // cout << powerTotal[j] << "* 10 ^ " << j << endl;
