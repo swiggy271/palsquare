@@ -4,6 +4,17 @@ TASK: palsquare
 LANG: C++
 */
 
+// NAME                    : Shuler Wiegerink
+// GROUP                   : Hexadecimal
+// LAST MODIFIED           : 25 March 2025
+// PROBLEM ID              : USACO Milk
+// PROBLEM DESCRIPTION     : Reads in a number containing a base, and outputs
+//                           every number which the square of that number is            
+//                           palindromic in the supplied base
+// SOURCES I USED          : USACO website
+// PEOPLE I HELPED         : 
+// PEOPLE WHO HELPED ME    : Mr. Houtrouw
+
 using namespace std;
 
 #include <iostream>
@@ -21,7 +32,7 @@ ifstream fin ("palsquare.in");
 ofstream fout ("palsquare.out");
 
 // declare variables
-int base, op[301], opSquare[301];
+int base;
 
 int main()
 {
@@ -34,14 +45,9 @@ int main()
         cout << j << endl;
         if(palindromeCheck(baseConvert(j * j, base)) == 1)
         {
-            // op[j] = baseConvert(j, base);
-            // opSquare[j] = baseConvert(pow(j, 2), base);
             fout << baseConvert(j, base) << " " << baseConvert(j * j, base) << endl;
-            cout << "pal" << endl;
         }
     }
-
-    // output
 }
 
 // base converter program
@@ -54,35 +60,31 @@ string baseConvert(int number, int base)
     bool writeZ = 0;
     runningNum = number;
     a = 0;
+
+    // calculates each number to save
     while (runningNum > 0 && a < 32)
     {
         powerTotal[a] = runningNum % base;
-        // cout << "pa " << powerTotal[a] << endl;
         runningNum /= base;
         a++;
     }
     a = 0;
+    // formats powertotal array correctly, and translates double digit numbers to letters
     for(int j = 18; j >= 0; j--)
     {
-        // a += (powerTotal[j] * pow(10, j));
-        // cout << powerTotal[j] << "* 10 ^ " << j << endl;
-        // cout << "a " << a << endl;
         if((to_string(powerTotal[j]) == "0") && (writeZ == 0))
         {
             writeZ = 0;
-            // cout << "p" << endl;
         }
         else if(powerTotal[j] > 9)
         {
             g += alph[powerTotal[j] % 10];
             writeZ = 1;
-            // cout << "z" << alph[powerTotal[j] % 10] << endl;
         }
         else
         {
             g += to_string(powerTotal[j]);
             writeZ = 1;
-            // cout << "z" << powerTotal[j] << to_string(powerTotal[j]) << endl;
         }
     }
     return g;
@@ -93,14 +95,14 @@ bool palindromeCheck(string b)
 {
     bool isPal = 1;
     char check;
+
+    // goes through the first half of the characters, and if the character
+    // at the corresponding opposite end is the same, continue
     for(int q = 0; q < (b.length() / 2); q++)
     {
         check = b[q];
-        // cout << "q = " << q << endl << "check = " << check << endl;
-        // cout << "important! " << b[(b.length() - q - 1)] << endl;
         if(b[(b.length() - q - 1)] != check)
         {
-            // cout << "0 because " << b[(b.length() - q)] << "!= " << check << endl;
             isPal = 0;
             goto notPal;
         }
