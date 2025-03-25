@@ -32,7 +32,7 @@ int main()
     for(int j = 1; j < 301; j++)
     {
         cout << j << endl;
-        if(palindromeCheck(baseConvert(j, base)) == 1)
+        if(palindromeCheck(baseConvert(j * j, base)) == 1)
         {
             // op[j] = baseConvert(j, base);
             // opSquare[j] = baseConvert(pow(j, 2), base);
