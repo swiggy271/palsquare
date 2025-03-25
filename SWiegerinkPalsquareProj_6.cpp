@@ -26,7 +26,7 @@ int base, op[301], opSquare[301];
 int main()
 {
     // reads input file
-    cin >> base;
+    fin >> base;
 
     // repetition of main block of program, at size specified by problemm description
     for(int j = 1; j < 301; j++)
@@ -36,7 +36,7 @@ int main()
         {
             // op[j] = baseConvert(j, base);
             // opSquare[j] = baseConvert(pow(j, 2), base);
-            cout << baseConvert(j, base) << " " << baseConvert(j * j, base) << endl;
+            fout << baseConvert(j, base) << " " << baseConvert(j * j, base) << endl;
             cout << "pal" << endl;
         }
     }
